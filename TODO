@@ -1,0 +1,3 @@
+
+ - separate action for first installation and reconfigure (in order to add public key)
+ - more sanity check (removing .ssh, be sure another user doesn't exist, etc...)
