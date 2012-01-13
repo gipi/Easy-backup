@@ -1,4 +1,6 @@
 #
 # Regular cron jobs for the easy-backup package
 #
+# TODO: dump of databases in /var/cache/easy-backup/sql/
+#
 0 4	* * *	root	[ -x /usr/bin/easy-backup_maintenance ] && /usr/bin/easy-backup_maintenance
