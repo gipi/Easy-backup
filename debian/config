@@ -1,6 +1,10 @@
 #!/bin/sh
-# debian/config script for the package
+# debian/config script for the package easy-backup
+#
 # Copyright 2010-2011 by Gerfried Fuchs <rhonda@debian.org>
+#  for the gitolite package, modified by Gianluca Pacchiella <gp@ktln2.org>
+#  for the easy-backup package.
+# 
 # Licenced under WTFPLv2
 
 set -e
