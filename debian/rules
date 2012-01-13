@@ -29,8 +29,10 @@ install:
 	-rm -rf $(TMP)
 	$(INSTALL_DIR) $(TMP)
 	cd $(TMP) && $(INSTALL_DIR) usr/share/$(PKG)/conf
+	cd $(TMP) && $(INSTALL_DIR) usr/share/doc/$(PKG)/
 	cd $(TMP) && $(INSTALL_DIR) usr/bin/
 	$(INSTALL_FILE) conf/* $(TMP)/usr/share/$(PKG)/conf/
+	$(INSTALL_FILE) debian/README.Debian $(TMP)/usr/share/doc/$(PKG)/
 	$(INSTALL_DIR) $(TMP)/var/cache/$(PKG)/
 	$(INSTALL_SCRIPT) \
 		bin/*         \
