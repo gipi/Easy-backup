@@ -38,7 +38,9 @@ if [ "$action" = "purge" ]; then
 		delgroup "$BACKUPUSER" >/dev/null || true
 	fi
 
+	# removes generate files in postinst
 	rm -f /usr/share/easy-backup/conf/sudo
+	rm -f /etc/sudoers.d/easy-backup
 
 fi
 
