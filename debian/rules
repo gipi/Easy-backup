@@ -1,0 +1,48 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# Sample debian/rules that uses debhelper.
+# This file was originally written by Joey Hess and Craig Small.
+# As a special exception, when this file is copied by dh-make into a
+# dh-make output file, you may use that output file without restriction.
+# This special exception was added by Craig Small in version 0.37 of dh-make.
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# this is part inspired from gitolite package
+
+PKG = easy-backup
+TMP = $(CURDIR)/debian/$(PKG)
+
+INSTALL = install
+INSTALL_FILE    = $(INSTALL) -p    -oroot -groot -m644
+INSTALL_PROGRAM = $(INSTALL) -p    -oroot -groot -m755
+INSTALL_SCRIPT  = $(INSTALL) -p    -oroot -groot -m755
+INSTALL_DIR     = $(INSTALL) -p -d -oroot -groot -m755
+
+
+clean:
+	-rm -rf $(TMP) debian/files conf/VERSION
+
+# stuffs my application related
+install:
+	-rm -rf $(TMP)
+	$(INSTALL_DIR) $(TMP)
+	cd $(TMP) && $(INSTALL_DIR) usr/share/$(PKG)/conf
+	$(INSTALL_FILE) conf/* $(TMP)/usr/share/$(PKG)/conf/
+	$(INSTALL_DIR) $(TMP)/var/cache/$(PKG)/
+
+# stuffs package related
+binary-indep: install
+	$(INSTALL_DIR) $(TMP)/DEBIAN
+	$(INSTALL_FILE) debian/templates debian/control $(TMP)/DEBIAN
+	$(INSTALL_SCRIPT)   \
+		debian/postinst \
+		debian/postrm   \
+		debian/config   \
+		$(TMP)/DEBIAN
+	dpkg-gencontrol -ldebian/changelog -isp -p$(PKG) -P$(TMP)
+
+binary: binary-indep
+	dpkg --build $(TMP) ..
+

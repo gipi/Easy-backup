@@ -1,0 +1,6 @@
+Template: easy-backup/backupuser
+Type: string
+Default: backupuser
+Description: System username for gitolite:
+ Please enter the name for the system user which should be used by
+ gitolite to access repositories. It will be created if necessary.
