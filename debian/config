@@ -12,4 +12,8 @@ set -e
 db_input high easy-backup/backupuser || true
 db_go
 
+# ask for a public key
+db_input high easy-backup/public_key || true
+db_go
+
 exit 0

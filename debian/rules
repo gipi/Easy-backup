@@ -29,8 +29,12 @@ install:
 	-rm -rf $(TMP)
 	$(INSTALL_DIR) $(TMP)
 	cd $(TMP) && $(INSTALL_DIR) usr/share/$(PKG)/conf
+	cd $(TMP) && $(INSTALL_DIR) usr/bin/
 	$(INSTALL_FILE) conf/* $(TMP)/usr/share/$(PKG)/conf/
 	$(INSTALL_DIR) $(TMP)/var/cache/$(PKG)/
+	$(INSTALL_SCRIPT) \
+		bin/*         \
+		$(TMP)/usr/bin/
 
 # stuffs package related
 binary-indep: install

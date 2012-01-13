@@ -1,0 +1,5 @@
+This package configure an user in the system with which
+backup it; it is intended to be used with rsnapshot.
+
+Primarly inspired from the following post
+<https://marksallee.wordpress.com/2009/10/08/server-backups-with-rsnapshot-rsync-non-root-user/>.

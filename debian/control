@@ -10,7 +10,7 @@ Homepage: <insert the upstream URL, if relevant>
 
 Package: easy-backup
 Architecture: any
-Depends: debconf, adduser, openssh-server, rsync
+Depends: debconf, adduser, openssh-server, rsync, sudo
 Description: This package make backup very easy.
  It creates an user in the system allowed to create backups
  by rsync using the sudo command. The access is controlled by

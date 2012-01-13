@@ -4,3 +4,9 @@ Default: backupuser
 Description: System username for gitolite:
  Please enter the name for the system user which should be used by
  gitolite to access repositories. It will be created if necessary.
+
+Template: easy-backup/public_key
+Type: string
+Default: 
+Description: This is the key used to access the system:
+ using the public key of ssh.

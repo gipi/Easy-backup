@@ -26,23 +26,34 @@ action=$1
 version=$2
 # only on new install or reconfigure
 if [ "x$version" = "x" ] || [ "$action" = "reconfigure" ]; then
-	# ask for user to create
-	#db_input medium gitolite/gituser || true
-	#db_go
 	db_get easy-backup/backupuser
 	BACKUPUSER="${RET:-backupuser}"
 
+	db_get easy-backup/public_key
+	PUBLICKEY="${RET}"
+
+	HOMEZ=/var/cache/easy-backup/
+
 	# looks for pre-existing entry and if not, creates it
 	if ! getent passwd "$BACKUPUSER" >/dev/null; then
-		adduser --quiet --system --home /var/cache/easy-backup/ --shell /bin/bash \
+		adduser --quiet --system --home "$HOMEZ" --shell /bin/bash \
 			--uid 10000 \
 			--no-create-home --gecos 'backup user' \
 			--group "$BACKUPUSER"
 	fi
 
+	mkdir -p $HOMEZ/.ssh/
+
+	# TODO: check if exists authorized_keys
+	cat <<EOF >> $HOMEZ/.ssh/authorized_keys
+command="/usr/bin/rsync-checker.sh" $PUBLICKEY
+EOF
+
 	cat <<EOF > /usr/share/easy-backup/conf/sudo
 $BACKUPUSER ALL=NOPASSWD: /usr/bin/rsync
 EOF
+	cp /usr/share/easy-backup/conf/sudo /etc/sudoers.d/easy-backup
+	chmod 0440 /etc/sudoers.d/easy-backup
 
 fi
 
