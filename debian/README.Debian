@@ -1,4 +1,4 @@
-This package configure an user in the system with which
+This package configures an user in the system with which
 backup it; it is intended to be used with rsnapshot.
 
 Primarly inspired from the following post
