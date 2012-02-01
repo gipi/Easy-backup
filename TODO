@@ -1,4 +1,5 @@
 
  - LICENSE
  - separate action for first installation and reconfigure (in order to add public key)
- - more sanity check (removing .ssh, be sure another user doesn't exist, etc...)
+ - more sanity check (removing .ssh, be sure another user doesn't exist, advises admin that
+   there is an entry for the user in sudo, etc...)
