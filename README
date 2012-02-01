@@ -1,0 +1,14 @@
+First create the binary package
+
+ $ fakeroot debian/rules binary
+ # dpkg -i easy-backup.deb
+ <insert public key and username for backup>
+
+In the system where you want to store the backups, create a rsnapshot
+like the one stored at /usr/share/easy-backup/conf/rsnapshot.conf and
+add a line in a crontab file in order to schedule it. Just this!
+
+WARNING: installing manually the package (by dpkg) can cause an error,
+it's possible to fix executing
+
+ $ apt-get -f install
