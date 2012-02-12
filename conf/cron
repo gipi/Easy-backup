@@ -1,6 +1,5 @@
 #
 # Regular cron jobs for the easy-backup package
 #
-# TODO: dump of databases in /var/cache/easy-backup/sql/
 #
-0 4	* * *	root	[ -x /usr/bin/easy-backup_maintenance ] && /usr/bin/easy-backup_maintenance
+0 1	* * *	root	su postgres -c '/usr/bin/pg_dumpall' > /var/cache/easy-backup/sql/postgres.sql

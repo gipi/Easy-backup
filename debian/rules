@@ -33,7 +33,7 @@ install:
 	cd $(TMP) && $(INSTALL_DIR) usr/bin/
 	$(INSTALL_FILE) conf/* $(TMP)/usr/share/$(PKG)/conf/
 	$(INSTALL_FILE) debian/README.Debian TODO $(TMP)/usr/share/doc/$(PKG)/
-	$(INSTALL_DIR) $(TMP)/var/cache/$(PKG)/
+	$(INSTALL_DIR) $(TMP)/var/cache/$(PKG)/sql
 	$(INSTALL_SCRIPT) \
 		bin/*         \
 		$(TMP)/usr/bin/

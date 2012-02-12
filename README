@@ -8,6 +8,9 @@ In the system where you want to store the backups, create a rsnapshot
 like the one stored at /usr/share/easy-backup/conf/rsnapshot.conf and
 add a line in a crontab file in order to schedule it. Just this!
 
+If you want to dump databases from the remote system, use the script
+in /usr/share/easy-backup/conf/cron and decomment your choosen backend.
+
 WARNING: installing manually the package (by dpkg) can cause an error,
 it's possible to fix executing
 
