@@ -1,9 +1,11 @@
 This is an easy backup system packaged and ready to use.
 
-Use rdiff-backup <http://www.nongnu.org/rdiff-backup/>and create
-a dedicated user on the remote system with a ssh publick key access.
-Since there is the need to backup root owned files the remote user
-need the sudo
+Use rdiff-backup
+
+  http://www.nongnu.org/rdiff-backup/
+
+and create a dedicated user on the remote system with a ssh publick key access.
+Since there is the need to backup root owned files the remote user need the sudo
 
 local system --- rdiff-backup ---> remote system --- rsync-checker ---> sudo rdiff-backup
 
