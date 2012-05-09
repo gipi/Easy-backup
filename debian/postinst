@@ -22,6 +22,8 @@ if [ -e /usr/share/debconf/confmodule ]; then
 	. /usr/share/debconf/confmodule
 fi
 
+BACKUP_COMMAND="/usr/bin/rsync-checker.sh"
+
 action=$1
 version=$2
 # only on new install or reconfigure
@@ -46,7 +48,7 @@ if [ "x$version" = "x" ] || [ "$action" = "reconfigure" ]; then
 
 	# TODO: check if exists authorized_keys
 	cat <<EOF >> $HOMEZ/.ssh/authorized_keys
-command="/usr/bin/rsync-checker.sh" $PUBLICKEY
+command="$BACKUP_COMMAND" $PUBLICKEY
 EOF
 
 	cat <<EOF > /usr/share/easy-backup/conf/sudo
