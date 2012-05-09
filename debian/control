@@ -4,7 +4,7 @@ Priority: extra
 Maintainer: Gianluca Pacchiella <gp@ktln2.org>
 Build-Depends: debhelper (>= 7.0.50~)
 Standards-Version: 3.8.4
-Homepage: <insert the upstream URL, if relevant>
+Homepage: <https://github.com/gipi/Easy-backup>
 #Vcs-Git: git://git.debian.org/collab-maint/easy-backup.git
 #Vcs-Browser: http://git.debian.org/?p=collab-maint/easy-backup.git;a=summary
 
