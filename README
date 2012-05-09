@@ -1,12 +1,19 @@
+This is an easy backup system packaged and ready to use.
+
+Use rdiff-backup <http://www.nongnu.org/rdiff-backup/>and create
+a dedicated user on the remote system with a ssh publick key access.
+Since there is the need to backup root owned files the remote user
+need the sudo
+
+local system --- rdiff-backup ---> remote system --- rsync-checker ---> sudo rdiff-backup
+
+
 First create the binary package
 
  $ fakeroot debian/rules binary
  # dpkg -i easy-backup.deb
  <insert public key and username for backup>
 
-In the system where you want to store the backups, create a rsnapshot
-like the one stored at /usr/share/easy-backup/conf/rsnapshot.conf and
-add a line in a crontab file in order to schedule it. Just this!
 
 If you want to dump databases from the remote system, use the script
 in /usr/share/easy-backup/conf/cron and decomment your choosen backend.

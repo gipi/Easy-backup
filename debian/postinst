@@ -52,7 +52,7 @@ command="$BACKUP_COMMAND" $PUBLICKEY
 EOF
 
 	cat <<EOF > /usr/share/easy-backup/conf/sudo
-$BACKUPUSER ALL=NOPASSWD: /usr/bin/rsync
+$BACKUPUSER ALL=NOPASSWD: /usr/bin/rdiff-backup
 EOF
 	cp /usr/share/easy-backup/conf/sudo /etc/sudoers.d/easy-backup
 	chmod 0440 /etc/sudoers.d/easy-backup

@@ -11,8 +11,8 @@ case "$SSH_ORIGINAL_COMMAND" in
                 echo "Rejected 2"
                 ;;
         # the absolute path otherwise "protocol version mismatch -- is your shell clean?"
-        /usr/bin/rsync*)
-                $SSH_ORIGINAL_COMMAND
+        *rdiff-backup*)
+                sudo $SSH_ORIGINAL_COMMAND
                 ;;
         *true*)
                 echo $SSH_ORIGINAL_COMMAND
