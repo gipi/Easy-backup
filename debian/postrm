@@ -34,7 +34,9 @@ if [ "$action" = "purge" ]; then
 	fi
 
 	if which deluser >/dev/null ; then
-		rm -vfr ~$BACKUPUSER/.ssh
+		echo "remove ssh directory"
+		rm -vfr /var/cache/easy-backup/.ssh
+		echo "remove $BACKUPUSER"
 		deluser --remove-home "$BACKUPUSER" >/dev/null || true
 		delgroup "$BACKUPUSER" >/dev/null || true
 	fi
