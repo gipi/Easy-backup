@@ -9,7 +9,7 @@ Homepage: <https://github.com/gipi/Easy-backup>
 #Vcs-Browser: http://git.debian.org/?p=collab-maint/easy-backup.git;a=summary
 
 Package: easy-backup
-Architecture: any
+Architecture: all
 Depends: debconf, adduser, openssh-server, rdiff-backup, sudo
 Description: This package make backup very easy.
  It creates an user in the system allowed to create backups
