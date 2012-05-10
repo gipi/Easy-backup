@@ -13,5 +13,5 @@ Architecture: any
 Depends: debconf, adduser, openssh-server, rdiff-backup, sudo
 Description: This package make backup very easy.
  It creates an user in the system allowed to create backups
- by rsync using the sudo command. The access is controlled by
+ by rdiff-backup using the sudo command. The access is controlled by
  ssh public key requested during package configuration.

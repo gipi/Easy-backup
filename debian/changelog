@@ -1,3 +1,9 @@
+easy-backup (0.1+nmu1) unstable; urgency=low
+
+  * Use rdiff-backup
+
+ -- Gianluca Pacchiella <gp@ktln2.org>  Thu, 10 May 2012 10:33:34 +0200
+
 easy-backup (0.1) unstable; urgency=low
 
   * Initial Release.
