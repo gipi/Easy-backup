@@ -15,3 +15,9 @@ WARNING: installing manually the package (by dpkg) can cause an error,
 it's possible to fix executing
 
  $ apt-get -f install
+
+In order to test the connection you can use
+
+ $ ssh backupuser@mydomain.com 'echo miao true'
+
+and see if all is ok.
