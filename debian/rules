@@ -9,46 +9,15 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-# this is part inspired from gitolite package
+%:
+	dh $@
 
-PKG = easy-backup
-TMP = $(CURDIR)/debian/$(PKG)
+override_dh_clean:
+	dh_clean
 
-INSTALL = install
-INSTALL_FILE    = $(INSTALL) -p    -oroot -groot -m644
-INSTALL_PROGRAM = $(INSTALL) -p    -oroot -groot -m755
-INSTALL_SCRIPT  = $(INSTALL) -p    -oroot -groot -m755
-INSTALL_DIR     = $(INSTALL) -p -d -oroot -groot -m755
+override_dh_install:
+	dh_install
+	dh_installdirs
+	dh_installdebconf
 
-
-clean:
-	-rm -rf $(TMP) debian/files conf/VERSION
-
-# stuffs my application related
-install:
-	-rm -rf $(TMP)
-	$(INSTALL_DIR) $(TMP)
-	cd $(TMP) && $(INSTALL_DIR) usr/share/$(PKG)/conf
-	cd $(TMP) && $(INSTALL_DIR) usr/share/doc/$(PKG)/
-	cd $(TMP) && $(INSTALL_DIR) usr/bin/
-	$(INSTALL_FILE) conf/* $(TMP)/usr/share/$(PKG)/conf/
-	$(INSTALL_FILE) debian/README.Debian TODO $(TMP)/usr/share/doc/$(PKG)/
-	$(INSTALL_DIR) $(TMP)/var/cache/$(PKG)/sql
-	$(INSTALL_SCRIPT) \
-		bin/*         \
-		$(TMP)/usr/bin/
-
-# stuffs package related
-binary-indep: install
-	$(INSTALL_DIR) $(TMP)/DEBIAN
-	$(INSTALL_FILE) debian/templates debian/control $(TMP)/DEBIAN
-	$(INSTALL_SCRIPT)   \
-		debian/postinst \
-		debian/postrm   \
-		debian/config   \
-		$(TMP)/DEBIAN
-	dpkg-gencontrol -ldebian/changelog -isp -p$(PKG) -P$(TMP)
-
-binary: binary-indep
-	dpkg --build $(TMP) ..
-
+PHONY: build clean binary-indep binary install

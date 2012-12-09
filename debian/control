@@ -8,7 +8,15 @@ Homepage: <insert the upstream URL, if relevant>
 #Vcs-Git: git://git.debian.org/collab-maint/easy-backup.git
 #Vcs-Browser: http://git.debian.org/?p=collab-maint/easy-backup.git;a=summary
 
-Package: easy-backup
+Package: easy-backup-rsnapshot
+Architecture: any
+Depends: debconf, adduser, openssh-server, rsync, sudo
+Description: This package make backup very easy.
+ It creates an user in the system allowed to create backups
+ by rsync using the sudo command. The access is controlled by
+ ssh public key requested during package configuration.
+
+Package: easy-backup-rdiff
 Architecture: any
 Depends: debconf, adduser, openssh-server, rsync, sudo
 Description: This package make backup very easy.
