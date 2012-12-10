@@ -1,12 +1,17 @@
 The most difficult part in maintaining a system is the backup procedure:
 tedious to setup and to maintain; with ``easy backup`` I hope to change this.
 
-It has two backend: ``rsnapshot`` and ``rdiff-backup``, each with its own
-characteristics; in order to use you must create the binary packages
+It has two backends: ``rsnapshot`` and ``rdiff-backup``, each with its own
+characteristics; in order to use you must create the binary packages and
+install the one with the backend of your choice
 
- $ fakeroot debian/rules binary
- # dpkg -i easy-backup-<backend>.deb
- <insert public key and username for backup>
+```
+$ git clone https://github.com/gipi/Easy-backup.git
+$ cd Easy-backup
+$ fakeroot debian/rules binary
+# dpkg -i easy-backup-<backend>.deb
+<insert public key and username for backup>
+```
 
 ##RSNAPSHOT
 
