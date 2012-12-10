@@ -1,0 +1,2 @@
+conf/rdiff-backup    /usr/share/easy-backup/conf/
+bin/rdiff-checker.sh /usr/bin/

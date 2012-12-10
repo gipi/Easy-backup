@@ -1,0 +1,4 @@
+# Cron file to use with rdiff-backup client-side
+0 1	* * *	root	rdiff-backup --print-statistics --include /var/www/ --include /etc/ --include /usr/local/lib/ --include /home/ --exclude / example.com::/ /var/backup/
+
+

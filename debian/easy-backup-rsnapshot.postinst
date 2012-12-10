@@ -50,6 +50,7 @@ command="/usr/bin/rsync-checker.sh" $PUBLICKEY
 EOF
 
 	cat <<EOF > /usr/share/easy-backup/conf/sudo
+#FIXME: change rsync to rdiff-backup
 $BACKUPUSER ALL=NOPASSWD: /usr/bin/rsync
 EOF
 	cp /usr/share/easy-backup/conf/sudo /etc/sudoers.d/easy-backup
