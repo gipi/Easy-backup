@@ -1,7 +1,8 @@
 #!/bin/sh
-# postinst script for easy-backup
+# postinst script for easy-backup-storage
 #
-# see: dh_installdeb(1)
+# This will create a ssh key to use for connect to the
+# machine to be backupped
 
 set -e
 
@@ -22,40 +23,28 @@ if [ -e /usr/share/debconf/confmodule ]; then
 	. /usr/share/debconf/confmodule
 fi
 
+	db_get easy-backup-storage/domain_name
+	DOMAIN="${RET}"
+
+	HOMEZ=/root
+    SSH_DIR="${HOME}/.ssh/"
+    SSH_KEY_FILEPATH="${SSH_DIR}/id_rsa_rsnapshot"
+
 action=$1
 version=$2
 # only on new install or reconfigure
 if [ "x$version" = "x" ] || [ "$action" = "reconfigure" ]; then
-	db_get easy-backup/backupuser
+	db_get easy-backup-storage/backupuser
 	BACKUPUSER="${RET:-backupuser}"
 
-	db_get easy-backup/public_key
-	PUBLICKEY="${RET}"
 
-	HOMEZ=/var/cache/easy-backup/
+	mkdir -p $SSH_DIR
 
-	# looks for pre-existing entry and if not, creates it
-	if ! getent passwd "$BACKUPUSER" >/dev/null; then
-		adduser --quiet --system --home "$HOMEZ" --shell /bin/bash \
-			--uid 10000 \
-			--no-create-home --gecos 'backup user' \
-			--group "$BACKUPUSER"
-	fi
-
-	mkdir -p $HOMEZ/.ssh/
-
-	# TODO: check if exists authorized_keys
-	cat <<EOF >> $HOMEZ/.ssh/authorized_keys
-command="/usr/bin/rsync-checker.sh" $PUBLICKEY
-EOF
-
-	cat <<EOF > /usr/share/easy-backup/conf/sudo
-$BACKUPUSER ALL=NOPASSWD: /usr/bin/rsync
-EOF
-	cp /usr/share/easy-backup/conf/sudo /etc/sudoers.d/easy-backup
-	chmod 0440 /etc/sudoers.d/easy-backup
-
+    test -f "${SSH_KEY_FILEPATH}" || ssh-keygen -f "${SSH_KEY_FILEPATH}" -N ''
 fi
+
+    echo "this is the text to put in the endpoint's authorized_keys\n\n"
+    cat "${SSH_KEY_FILEPATH}".pub
 
 
 # dh_installdeb will replace this with shell code automatically

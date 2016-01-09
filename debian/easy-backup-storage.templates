@@ -1,0 +1,12 @@
+Template: easy-backup-storage/backupuser
+Type: string
+Default: backupuser
+Description: System username created at the endpoint for easy-backup:
+ Please enter the name for the system user which should be used by
+ backup.
+
+Template: easy-backup-storage/domain_name
+Type: string
+Default: 
+Description: This is the full qualified domain name to user in order
+ to connect to the server.
