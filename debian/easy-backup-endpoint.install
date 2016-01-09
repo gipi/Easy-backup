@@ -1,3 +1,4 @@
 bin/rsync-backup /usr/bin/
 bin/rsync-checker.sh /usr/bin/
+bin/eb-ids /usr/bin/
 conf/rsnapshot.conf /usr/share/easy-backup/conf/
