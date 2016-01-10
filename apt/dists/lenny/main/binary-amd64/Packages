@@ -1,0 +1,40 @@
+Package: easy-backup-endpoint
+Source: easy-backup
+Version: 0.1
+Architecture: amd64
+Maintainer: Gianluca Pacchiella <gp@ktln2.org>
+Installed-Size: 35
+Depends: debconf, adduser, openssh-server, rsync, sudo
+Homepage: <insert the upstream URL, if relevant>
+Priority: extra
+Section: extra
+Filename: pool/main/e/easy-backup/easy-backup-endpoint_0.1_amd64.deb
+Size: 5300
+SHA256: ef291f5b1b9bcd9a3258e68d1c3173754c133c94c26e7a832f0a332a675d078a
+SHA1: 96f5a0493223f3dd12fdcd1ca88d9bfa000aa003
+MD5sum: 0aef05a059ff2af2b4671dfd6af1f12f
+Description: This package make backup very easy.
+ It creates an user in the system allowed to create backups
+ by rsync using the sudo command. The access is controlled by
+ ssh public key requested during package configuration.
+
+Package: easy-backup-storage
+Source: easy-backup
+Version: 0.1
+Architecture: amd64
+Maintainer: Gianluca Pacchiella <gp@ktln2.org>
+Installed-Size: 35
+Depends: debconf, openssh-client, rsnapshot, sudo
+Homepage: <insert the upstream URL, if relevant>
+Priority: extra
+Section: extra
+Filename: pool/main/e/easy-backup/easy-backup-storage_0.1_amd64.deb
+Size: 4136
+SHA256: 866223b09c34533828b1e235aee8c1c71c67dc9183c134e1b52ad287a96cc87b
+SHA1: 2141e3f0b4099b355c4bbc50cebdd1f6243ece7f
+MD5sum: c6606a15b4ea52f07af59efe9f87d5eb
+Description: This package make backup very easy.
+ It creates an user in the system allowed to create backups
+ by rsync using the sudo command. The access is controlled by
+ ssh public key requested during package configuration.
+

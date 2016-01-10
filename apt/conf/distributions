@@ -1,0 +1,8 @@
+Origin: Gianluca Pacchiella
+Label: Easy backup
+Suite: stable
+Codename: lenny
+Version: 0.1
+Architectures: amd64
+Components: main
+Description: Your description

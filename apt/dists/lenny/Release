@@ -1,0 +1,21 @@
+Origin: Gianluca Pacchiella
+Label: Easy backup
+Suite: stable
+Codename: lenny
+Version: 0.1
+Date: Sun, 10 Jan 2016 18:32:31 UTC
+Architectures: amd64
+Components: main
+Description: Your description
+MD5Sum:
+ 1eb67698fdfc7036587f6940bec4a14b 1499 main/binary-amd64/Packages
+ ef1fa3c9413388a3f2c381727c8dc9de 656 main/binary-amd64/Packages.gz
+ 48cce3639d17b42a2c77fb2e911c2306 142 main/binary-amd64/Release
+SHA1:
+ 9fd95cf1cc4f56b17f1ab7b152a362cde09894b5 1499 main/binary-amd64/Packages
+ ad7e772dc75ea18b6b7533a64ffc760dc23670ff 656 main/binary-amd64/Packages.gz
+ ebb9510915d6b2e482c6c194ab977c21bb22752b 142 main/binary-amd64/Release
+SHA256:
+ 45ab5216a455c5f96b4b993f8a983e1456ea9a814565b9bf8a613c5e786a1e7e 1499 main/binary-amd64/Packages
+ b2dc0eac329a2ad1721ef53932bf98e181d2d00042451009a95da5fbb56218a5 656 main/binary-amd64/Packages.gz
+ 46a8a443111c92c5b78c333b9ca320cde3e38d4ea17529cede5e2114b4ecbdd1 142 main/binary-amd64/Release
