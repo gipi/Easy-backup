@@ -21,3 +21,5 @@ In order to test the connection you can use
     $ ssh backupuser@mydomain.com 'echo miao true'
 
 and see if all is ok.
+
+If installing the packages some errors happen use ``export DEBCONF_DEBUG=developer``.
