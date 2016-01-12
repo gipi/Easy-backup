@@ -41,6 +41,31 @@ if [ "x$version" = "x" ] || [ "$action" = "reconfigure" ]; then
 	mkdir -p $SSH_DIR
 
     test -f "${SSH_KEY_FILEPATH}" || ssh-keygen -f "${SSH_KEY_FILEPATH}" -N ''
+
+cat > /etc/rsnapshot-eb.conf <<EOF
+# remeber about the TABs when you do copy&paste
+config_version	1.2
+snapshot_root	/var/cache/rsnapshot/
+cmd_cp		/bin/cp
+cmd_rm		/bin/rm
+cmd_rsync	/usr/bin/rsync
+cmd_ssh	/usr/bin/ssh
+cmd_logger	/usr/bin/logger
+rsync_long_args	-ev --rsync-path=/usr/bin/rsync-backup --delete --numeric-ids --relative --delete-excluded
+ssh_args	-i ${SSH_KEY_FILEPATH}
+verbose		2
+loglevel	5
+logfile	/var/log/rsnapshot.log
+lockfile	/var/run/rsnapshot.pid
+retain	daily	6
+# use a subdomain if possible in order to avoid DNS problems
+# and make clear that exists this service running
+backup	backupuser@${DOMAIN}:/etc/		${DOMAIN}/
+backup	backupuser@${DOMAIN}:/var/		${DOMAIN}/
+EOF
+
+    echo edit and copy /etc/rsnapshot-eb.conf to /etc/rsnapshot.conf
+
 fi
 
     echo "this is the text to put in the endpoint's authorized_keys\n\n"
