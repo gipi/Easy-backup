@@ -1,0 +1,20 @@
+Package: easy-backup-storage
+Source: easy-backup
+Version: 0.2
+Architecture: all
+Maintainer: Gianluca Pacchiella <gp@ktln2.org>
+Installed-Size: 16
+Depends: debconf, openssh-client, rsnapshot (>= 1.4.1-1), sudo
+Homepage: <insert the upstream URL, if relevant>
+Priority: extra
+Section: extra
+Filename: pool/main/e/easy-backup/easy-backup-storage_0.2_all.deb
+Size: 3740
+SHA256: e817177e19dbe87d5c1936cd8da95a1c8d0a2ad66ca8f5e06ae601cdda4ca824
+SHA1: 71e61f2635c4c5374ae98d1e8d35d6e78edae8f7
+MD5sum: ecaee2b187a1f89c8d1be868402fdbfa
+Description: This package make backup very easy.
+ It creates an user in the system allowed to create backups
+ by rsync using the sudo command. The access is controlled by
+ ssh public key requested during package configuration.
+
