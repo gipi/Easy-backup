@@ -17,7 +17,7 @@ Description: This package make backup very easy.
 
 Package: easy-backup-storage
 Architecture: all
-Depends: debconf, openssh-client, rsnapshot, sudo
+Depends: debconf, openssh-client, rsnapshot (>=1.4.1-1), sudo
 Description: This package make backup very easy.
  It creates an user in the system allowed to create backups
  by rsync using the sudo command. The access is controlled by
