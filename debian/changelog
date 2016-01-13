@@ -1,0 +1,11 @@
+easy-backup (0.2) unstable; urgency=medium
+
+  * Split into two different packages
+
+ -- Gianluca Pacchiella <gp@ktln2.org>  Wed, 13 Jan 2016 22:22:07 +0100
+
+easy-backup (0.1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Gianluca Pacchiella <gp@ktln2.org>  Thu, 09 Jan 2015 15:11:44 +0100
