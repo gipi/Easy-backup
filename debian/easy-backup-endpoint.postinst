@@ -26,10 +26,10 @@ action=$1
 version=$2
 # only on new install or reconfigure
 if [ "x$version" = "x" ] || [ "$action" = "reconfigure" ]; then
-	db_get easy-backup/backupuser
+	db_get easy-backup-endpoint/backupuser
 	BACKUPUSER="${RET:-backupuser}"
 
-	db_get easy-backup/public_key
+	db_get easy-backup-endpoint/public_key
 	PUBLICKEY="${RET}"
 
 	HOMEZ=/var/cache/easy-backup/

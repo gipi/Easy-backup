@@ -7,48 +7,49 @@
 # This special exception was added by Craig Small in version 0.37 of dh-make.
 
 # Uncomment this to turn on verbose mode.
-#export DH_VERBOSE=1
+export DH_VERBOSE=1
 
-# this is part inspired from gitolite package
+# Build architecture-independent files here.
+# creating also docs package without examples files. See /debian/*.docs file
+binary-indep: easy-backup-endpoint easy-backup-storage
 
-PKG = easy-backup
-TMP = $(CURDIR)/debian/$(PKG)
+# creating j2ee package . See /debian/*j2ee.* files
+# note the -p$@ to use target name package files in /debian as parameters
+# this option defines that a given rule will act only at the specified package
+# Caution: the -i option is for rule acting on ALL architecture INdependent 
+# packages at this WHOLE file, not only at where it is written.
 
-INSTALL = install
-INSTALL_FILE    = $(INSTALL) -p    -oroot -groot -m644
-INSTALL_PROGRAM = $(INSTALL) -p    -oroot -groot -m755
-INSTALL_SCRIPT  = $(INSTALL) -p    -oroot -groot -m755
-INSTALL_DIR     = $(INSTALL) -p -d -oroot -groot -m755
-
-
-clean:
-	-rm -rf $(TMP) debian/files conf/VERSION
-
-# stuffs my application related
-install:
-	-rm -rf $(TMP)
-	$(INSTALL_DIR) $(TMP)
-	cd $(TMP) && $(INSTALL_DIR) usr/share/$(PKG)/conf
-	cd $(TMP) && $(INSTALL_DIR) usr/share/doc/$(PKG)/
-	cd $(TMP) && $(INSTALL_DIR) usr/bin/
-	$(INSTALL_FILE) conf/* $(TMP)/usr/share/$(PKG)/conf/
-	$(INSTALL_FILE) debian/README.Debian TODO $(TMP)/usr/share/doc/$(PKG)/
-	$(INSTALL_DIR) $(TMP)/var/cache/$(PKG)/sql
-	$(INSTALL_SCRIPT) \
-		bin/*         \
-		$(TMP)/usr/bin/
-
-# stuffs package related
-binary-indep: install
-	$(INSTALL_DIR) $(TMP)/DEBIAN
-	$(INSTALL_FILE) debian/templates debian/control $(TMP)/DEBIAN
-	$(INSTALL_SCRIPT)   \
-		debian/postinst \
-		debian/postrm   \
-		debian/config   \
-		$(TMP)/DEBIAN
-	dpkg-gencontrol -ldebian/changelog -isp -p$(PKG) -P$(TMP)
+easy-backup-endpoint easy-backup-storage:
+	dh_clean -p$@
+	dh_testdir
+	dh_testroot
+	dh_installdirs  -p$@
+	dh_installchangelogs  -p$@
+	dh_installdocs  -p$@
+#	dh_installexamples -p$@
+# using dh_installdirs and dh_install for this task
+# note the absence of leading "/"
+	dh_install -i -p$@
+#	dh_installmenu -i
+	dh_installdebconf -i -p$@
+#	dh_installlogrotate -i
+#	dh_installemacsen -i
+#	dh_installpam -i
+#	dh_installmime -i
+#	dh_python -i
+#	dh_installinit -i
+	dh_installcron -p$@
+#	dh_installinfo -i
+	dh_installman  -p$@
+	dh_link  -p$@
+	dh_strip  -p$@
+	dh_compress  -p$@
+	dh_fixperms  -p$@
+#	dh_perl -i
+	dh_installdeb -p$@
+	dh_gencontrol  -p$@
+	dh_md5sums  -p$@
+	dh_builddeb  -p$@
 
 binary: binary-indep
-	dpkg --build $(TMP) ..
-
+PHONY: build clean binary-indep binary

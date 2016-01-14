@@ -1,0 +1,9 @@
+#!/usr/bin/env python2
+import pwd
+import json
+
+if __name__ == '__main__':
+    result = dict( (_.pw_name, { 'uid': _.pw_uid, 'gid': _.pw_gid }) for _ in pwd.getpwall() )
+
+    print json.dumps(result, indent=4)
+

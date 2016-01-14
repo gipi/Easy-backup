@@ -1,11 +1,11 @@
-Template: easy-backup/backupuser
+Template: easy-backup-endpoint/backupuser
 Type: string
 Default: backupuser
 Description: System username for easy-backup:
  Please enter the name for the system user which should be used by
  backup. It will be created if necessary.
 
-Template: easy-backup/public_key
+Template: easy-backup-endpoint/public_key
 Type: string
 Default: 
 Description: This is the key used to access the system:

@@ -6,3 +6,4 @@
 0 1	* * *	root	dpkg --get-selections > /var/cache/easy-backup/dpkg-selections.bk
 # https://www.debian-administration.org/article/669/Cloning_a_Debian_system_-_identical_packages_and_versions
 0 1	* * *	root	aptitude -q -F "\%?p=\%?V \%M" --disable-columns search \~i > /var/cache/easy-backup/package-version.list
+0 1 * * *   nobody  /usr/bin/eb-ids > /var/cache/easy-backup/uid-gid.list

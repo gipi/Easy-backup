@@ -5,12 +5,19 @@ Maintainer: Gianluca Pacchiella <gp@ktln2.org>
 Build-Depends: debhelper (>= 7.0.50~)
 Standards-Version: 3.8.4
 Homepage: <insert the upstream URL, if relevant>
-#Vcs-Git: git://git.debian.org/collab-maint/easy-backup.git
-#Vcs-Browser: http://git.debian.org/?p=collab-maint/easy-backup.git;a=summary
+Vcs-Git: https://github.com/gipi/Easy-backup
 
-Package: easy-backup
-Architecture: any
+Package: easy-backup-endpoint
+Architecture: all
 Depends: debconf, adduser, openssh-server, rsync, sudo
+Description: This package make backup very easy.
+ It creates an user in the system allowed to create backups
+ by rsync using the sudo command. The access is controlled by
+ ssh public key requested during package configuration.
+
+Package: easy-backup-storage
+Architecture: all
+Depends: debconf, openssh-client, rsnapshot (>=1.4.1-1), sudo
 Description: This package make backup very easy.
  It creates an user in the system allowed to create backups
  by rsync using the sudo command. The access is controlled by
