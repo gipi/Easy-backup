@@ -3,28 +3,28 @@ Label: Easy backup
 Suite: unstable
 Codename: sid
 Version: 0.1
-Date: Wed, 13 Jan 2016 21:31:14 UTC
+Date: Thu, 14 Jan 2016 20:57:19 UTC
 Architectures: amd64 i386
 Components: main
 Description: Your description
 MD5Sum:
- dae3bc21e555fcc81aa85389b0b2211b 755 main/binary-amd64/Packages
- 98591ed809ef35b35e67eca2dbcdcda6 520 main/binary-amd64/Packages.gz
+ a1ea99865fd62f81095327314b5c5f50 1504 main/binary-amd64/Packages
+ 735aea64a7d29fc77e24cb2784a4970d 668 main/binary-amd64/Packages.gz
  6b5332319fb1eaac8a0e8433e61f5cbd 144 main/binary-amd64/Release
- dae3bc21e555fcc81aa85389b0b2211b 755 main/binary-i386/Packages
- 98591ed809ef35b35e67eca2dbcdcda6 520 main/binary-i386/Packages.gz
+ a1ea99865fd62f81095327314b5c5f50 1504 main/binary-i386/Packages
+ 735aea64a7d29fc77e24cb2784a4970d 668 main/binary-i386/Packages.gz
  b2f48ef6ad6265f819fb0ebbb402b100 143 main/binary-i386/Release
 SHA1:
- 3f6b327f5dacf21257f6e31642f1a2f3fd0bc3b2 755 main/binary-amd64/Packages
- cbdf8cbcc91cb66886073ee66e39c468c1777eb9 520 main/binary-amd64/Packages.gz
+ 71afc874dfefb08ff47b47a6e0008b9263d1941b 1504 main/binary-amd64/Packages
+ d4c41f011cedffafb3aa5eba789105a50072730d 668 main/binary-amd64/Packages.gz
  6af5aec2f12fa160df64a503298804f11eeaf901 144 main/binary-amd64/Release
- 3f6b327f5dacf21257f6e31642f1a2f3fd0bc3b2 755 main/binary-i386/Packages
- cbdf8cbcc91cb66886073ee66e39c468c1777eb9 520 main/binary-i386/Packages.gz
+ 71afc874dfefb08ff47b47a6e0008b9263d1941b 1504 main/binary-i386/Packages
+ d4c41f011cedffafb3aa5eba789105a50072730d 668 main/binary-i386/Packages.gz
  f71f7e4c7b3c512f365c18b20114d6a871ecd436 143 main/binary-i386/Release
 SHA256:
- 496a19b577a7384b3ed50cefe49bf98ff78565165ac7bbac14253d432d7f9b7f 755 main/binary-amd64/Packages
- 4f50b2ccff70a71531fe2084b709f9967255c03dc7d63912fe96fd7bdd8b270b 520 main/binary-amd64/Packages.gz
+ 38e16f2ff27c73e3fd66649bdb18498637017084ab9df3566b4386a4a0ca3c6d 1504 main/binary-amd64/Packages
+ b75b96b7829d571dc6ca551028546ca9de79dfa8f781e2b681e10e9be55841b6 668 main/binary-amd64/Packages.gz
  238e5f4636bf8fd01becc35d9aecf9be8bee7120025544585e230d1614feda1a 144 main/binary-amd64/Release
- 496a19b577a7384b3ed50cefe49bf98ff78565165ac7bbac14253d432d7f9b7f 755 main/binary-i386/Packages
- 4f50b2ccff70a71531fe2084b709f9967255c03dc7d63912fe96fd7bdd8b270b 520 main/binary-i386/Packages.gz
+ 38e16f2ff27c73e3fd66649bdb18498637017084ab9df3566b4386a4a0ca3c6d 1504 main/binary-i386/Packages
+ b75b96b7829d571dc6ca551028546ca9de79dfa8f781e2b681e10e9be55841b6 668 main/binary-i386/Packages.gz
  11d1d00bf9befef5e436277169cb4ded839bbf31b61793bae742eeb3c95779b1 143 main/binary-i386/Release
