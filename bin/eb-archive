@@ -1,0 +1,128 @@
+#!/usr/bin/env python
+#
+# Script that adjust tar's files permission in order to
+# reproduce backup in a system with uid and gid arranged
+# differently from the original system.
+#
+# To generate the JSON with the system information is
+# possible to use the following snippet of code
+#
+#   $ python -c "import pwd,json;print json.dumps(dict( (_.pw_name, { 'uid': _.pw_uid, 'gid': _.pw_gid }) for _ in pwd.getpwall()), indent=4)"
+import os
+import sys
+import argparse
+import tarfile
+import json
+import itertools
+import logging
+
+
+logging.basicConfig()
+logger = logging.getLogger('eb-archive')
+logger.setLevel(logging.DEBUG)
+
+
+def usage(progname):
+    print 'usage: %s --in <src json> --out <dest json> --archive <backup archive path>'
+
+def abort(msg, return_code=1):
+    print 'fail:%s' % msg
+    sys.exit(return_code)
+
+def abort_if_not_exist(filepath):
+    if not os.path.exists(filepath):
+        abort('file %s doesn\'t exist' % filepath)
+
+def load_json(json_filepath):
+    content = None
+    with open(src_json) as f:
+        try:
+            content = json.loads(f.read())
+        except ValueError as e:
+            logger.error(e)
+            abort('invalid format for file \'%s\'' % src_json)
+
+    return content
+
+class PermissionManager(object):
+    def __init__(self, users_state):
+        logger.debug('users state: %s' % users_state)
+        self.users_state = users_state
+
+    # use memoize
+    def _get_username(self, uid):
+        '''get the username from the src of the corresponding uid'''
+        logger.debug('_get_username(%s)' % uid)
+        for username in self.users_state.keys():
+            if self.users_state.get(username).get('src').get('uid') == uid:
+                logger.debug('<- %s' % username)
+                return username
+
+        raise ValueError('uid %s not present, probably JSON mismatch system' % uid)
+
+    def _convert_uid(self, uid):
+        username = self._get_username(uid)
+
+        new_uid = self.users_state.get(username).get('dst').get('uid')
+        logger.debug('convert %s -> %s' % (uid, new_uid))
+
+        return new_uid
+
+    def __call__(self, uid, gid):
+        logger.debug('called conversion for %s:%s' % (self._get_username(uid), self._get_username(gid)))
+        return self._convert_uid(uid), gid
+
+def handle_tar_entry(tarinfo, permission_manager):
+    tarinfo.uid, tarinfo.gid = permission_manager(tarinfo.uid, tarinfo.gid)
+
+def handle_tar(tarf, permission_manager):
+    logger.debug('opened tar file: %s' % tarf)
+
+    for _ in tarf:
+        handle_tar_entry(_, permission_manager)
+
+    #archive.extractall(path='/tmp')
+
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--src', type=str, help='src json', required=True)
+    parser.add_argument('--dst', type=str, help='dst json', required=True)
+    # archive is not mandatory, if it's not indicated we are using stdin
+    parser.add_argument('--archive', type=str, help='input archive (if not indicated uses stdin)')
+
+    return parser.parse_args()
+
+if __name__ == '__main__':
+
+    args = parse_args()
+
+    src_json = args.src
+    dst_json = args.dst
+    archive_path = args.archive
+
+    abort_if_not_exist(src_json)
+    abort_if_not_exist(dst_json)
+
+    if archive_path:# stdin
+        abort_if_not_exist(archive_path)
+
+    src_users = load_json(src_json)
+    dst_users = load_json(dst_json)
+
+    # here will save the situation
+    result = {}
+
+    # we loop over all the users defined in both the systems
+    all_users = tuple(itertools.chain.from_iterable([src_users.keys(), dst_users.keys()]))
+    for user in all_users:
+        src = src_users.get(user, -1)
+        result[user] = {
+            'src': src,
+            'dst': dst_users.get(user, -1),
+        }
+
+    pm = PermissionManager(result)
+
+    tf = tarfile.open(mode="r|", fileobj=sys.stdin)
+    handle_tar(tf, pm)
+
