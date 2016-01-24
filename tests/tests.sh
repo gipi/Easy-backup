@@ -8,7 +8,7 @@ set -o errexit
 readonly DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 readonly LOG_FILE=${DIR}/tests.log
-readonly PRINT_OUT="pv -p --width 15 --delay-start 3"
+readonly PRINT_OUT="${PRINT_OUT:-pv -p --width 15 --delay-start 3}"
 
 # FIXME: check return code
 function execute_on() {
