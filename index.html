@@ -1,8 +1,122 @@
-<html>
-<head><title>Easy Backup</title></head>
-<body>
-    <h1>Easy Backup</h1>
-    <p>To add this repository you can create a file with path <code></code></p>
-    <pre>deb http://ktln2.org/Easy-backup/apt   sid main</pre>
+<!DOCTYPE html>
+  <html>
+    <head>
+    <title>Easy Backup</title>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+        <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <header>
+    <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo"><img src="cloud.png" style="height:64px;"/></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="https://github.com/gipi/Easy-Backup">Github</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+        <h1 class="header center">Easy Backup</h1>
+        <div class="row center">
+           <h4 class="header col s12 light center">Make backups easy-peasy</h4>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="container">
+    <div class="row">
+
+      <div class="col s4">
+        <div class="center">
+            <i class="large material-icons">loop</i>
+            <p class="promo-caption">Speeds up development</p>
+            <p class="light center">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components.</p>
+        </div>
+      </div>
+      <div class="col s4">
+        <div class="center promo promo-example">
+            <i class="large material-icons">import_export</i>
+            <p class="promo-caption">Speeds up development</p>
+            <p class="light center">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components.</p>
+        </div>
+        <!-- Promo Content 2 goes here -->
+      </div>
+      <div class="col s4">
+        <div class="center">
+            <i class="large material-icons">done</i>
+            <p class="promo-caption">Open source technology</p>
+            <p class="light center">You can adapt or correct the tool to fit your needs</p>
+        </div>
+        <!-- Promo Content 3 goes here -->
+      </div>
+    </div>
+    </div>
+</div>
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col s8 offset-s2">
+                <h1>Principles</h1>
+                <div class="divider"></div>
+                <p>
+                The idea is that you have a central machine acting as a centralized <b>storage</b>, that once a day (this is configurable of course)
+                connect with one or more <b>endpoints</b> in order to make backup of them.
+                </p>
+                <p>It's based upon pre-existing open source softwares</p>
+                <ul class="collection">
+                    <li class="collection-item avatar">
+                      <i class="material-icons circle green">swap_horiz</i>
+                      <span class="title">SSH</span>
+                      <p>Standard remote tool for operating between systems<br>
+                        <a href="http://www.openssh.com/">home page</a> 
+                      </p>
+                    </li>
+                    <li class="collection-item avatar">
+                      <i class="material-icons circle red">swap_vert</i>
+                      <span class="title">RSNAPSHOT</span>
+                      <p>filesystem snapshot utility based on rsync<br>
+                        <a href="http://www.rsnapshot.org">home page</a> 
+                      </p>
+                    </li>
+                    <li class="collection-item avatar">
+                      <i class="material-icons circle blue">code</i>
+                      <span class="title">Python</span>
+                      <p>Well known open source language<br>
+                      </p>
+                    </li>
+                  </ul>
+                <p>
+                Easy Backup consists of two (Debian) packages, one for the storage system and one for the endpoint, that have to be installed
+                in the right machines.
+                </p>
+                <p>
+                Other than saving the files, are available some tools to help the administrator to restore the backups, maintaining the right
+                permissions, creating <code>tar</code> archive ready to be used in the destination system.
+                </p>
+                <div class="center">
+                    <script type="text/javascript" src="https://asciinema.org/a/33761.js" id="asciicast-33761" async></script>
+                </div>
+                <h1>Getting started</h1>
+                <div class="divider"></div>
+                <p>To add this repository you can create a file with path <code></code></p>
+                <pre class="language-markup">deb http://ktln2.org/Easy-backup/apt   sid main</pre>
+            </div>
+        </div><!-- /row -->
+    </div><!-- /container -->
+</div>
 </body>
 </html>
