@@ -3,8 +3,8 @@ Label: Easy backup
 Suite: unstable
 Codename: sid
 Version: 0.1
-Date: Thu, 14 Jan 2016 20:57:19 UTC
-Architectures: amd64 i386
+Date: Sun, 31 Jan 2016 14:36:55 UTC
+Architectures: amd64 i386 armhf
 Components: main
 Description: Your description
 MD5Sum:
@@ -14,6 +14,9 @@ MD5Sum:
  a1ea99865fd62f81095327314b5c5f50 1504 main/binary-i386/Packages
  735aea64a7d29fc77e24cb2784a4970d 668 main/binary-i386/Packages.gz
  b2f48ef6ad6265f819fb0ebbb402b100 143 main/binary-i386/Release
+ a1ea99865fd62f81095327314b5c5f50 1504 main/binary-armhf/Packages
+ 735aea64a7d29fc77e24cb2784a4970d 668 main/binary-armhf/Packages.gz
+ b64821fca58b24553c602d7f43aab7b4 144 main/binary-armhf/Release
 SHA1:
  71afc874dfefb08ff47b47a6e0008b9263d1941b 1504 main/binary-amd64/Packages
  d4c41f011cedffafb3aa5eba789105a50072730d 668 main/binary-amd64/Packages.gz
@@ -21,6 +24,9 @@ SHA1:
  71afc874dfefb08ff47b47a6e0008b9263d1941b 1504 main/binary-i386/Packages
  d4c41f011cedffafb3aa5eba789105a50072730d 668 main/binary-i386/Packages.gz
  f71f7e4c7b3c512f365c18b20114d6a871ecd436 143 main/binary-i386/Release
+ 71afc874dfefb08ff47b47a6e0008b9263d1941b 1504 main/binary-armhf/Packages
+ d4c41f011cedffafb3aa5eba789105a50072730d 668 main/binary-armhf/Packages.gz
+ d2ccd5e64705b30310341fcd505bf91a8d86360f 144 main/binary-armhf/Release
 SHA256:
  38e16f2ff27c73e3fd66649bdb18498637017084ab9df3566b4386a4a0ca3c6d 1504 main/binary-amd64/Packages
  b75b96b7829d571dc6ca551028546ca9de79dfa8f781e2b681e10e9be55841b6 668 main/binary-amd64/Packages.gz
@@ -28,3 +34,6 @@ SHA256:
  38e16f2ff27c73e3fd66649bdb18498637017084ab9df3566b4386a4a0ca3c6d 1504 main/binary-i386/Packages
  b75b96b7829d571dc6ca551028546ca9de79dfa8f781e2b681e10e9be55841b6 668 main/binary-i386/Packages.gz
  11d1d00bf9befef5e436277169cb4ded839bbf31b61793bae742eeb3c95779b1 143 main/binary-i386/Release
+ 38e16f2ff27c73e3fd66649bdb18498637017084ab9df3566b4386a4a0ca3c6d 1504 main/binary-armhf/Packages
+ b75b96b7829d571dc6ca551028546ca9de79dfa8f781e2b681e10e9be55841b6 668 main/binary-armhf/Packages.gz
+ 62c0f6106bf3e572dc829efe7fb28042aab84e81167cc13efc441146bf3c5826 144 main/binary-armhf/Release

@@ -3,6 +3,6 @@ Label: Easy backup
 Suite: unstable
 Codename: sid
 Version: 0.1
-Architectures: amd64 i386
+Architectures: amd64 i386 armhf
 Components: main
 Description: Your description
