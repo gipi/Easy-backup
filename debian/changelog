@@ -1,3 +1,9 @@
+easy-backup (0.3) unstable; urgency=medium
+
+  * Fixed wrong directory creation for easy-backup-endpoint
+
+ -- Gianluca Pacchiella <gp@ktln2.org>  Mon, 01 Feb 2016 22:17:12 +0100
+
 easy-backup (0.2) unstable; urgency=medium
 
   * Split into two different packages

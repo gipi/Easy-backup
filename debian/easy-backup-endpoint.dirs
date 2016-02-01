@@ -1,2 +1,2 @@
-var/cache/sql
+var/cache/easy-backup/sql
 usr/share/easy-backup/conf
