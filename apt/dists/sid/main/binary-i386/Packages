@@ -1,18 +1,18 @@
 Package: easy-backup-endpoint
 Source: easy-backup
-Version: 0.2
+Version: 0.3
 Architecture: all
 Maintainer: Gianluca Pacchiella <gp@ktln2.org>
-Installed-Size: 29
+Installed-Size: 30
 Depends: debconf, adduser, openssh-server, rsync, sudo
 Homepage: <insert the upstream URL, if relevant>
 Priority: extra
 Section: extra
-Filename: pool/main/e/easy-backup/easy-backup-endpoint_0.2_all.deb
-Size: 4786
-SHA256: 925bf2fb785abc7d0d0c2861aa46e0b6c176028d1d8799fb08f4efdcb4c02b4b
-SHA1: 41b4e386fea23918c6f35314926dad61964679a2
-MD5sum: f3d7086511dde13cbca1ecbe76b80d56
+Filename: pool/main/e/easy-backup/easy-backup-endpoint_0.3_all.deb
+Size: 4856
+SHA256: 5e62d6e387ee714e22bff30f511e420841a35956401e88188b9e256638cddc8e
+SHA1: 399924bb717897f80bef1facf935bcf7b4fc8e6e
+MD5sum: 8f29ea21c8e3d303a63f15f656e6255f
 Description: This package make backup very easy.
  It creates an user in the system allowed to create backups
  by rsync using the sudo command. The access is controlled by
@@ -20,7 +20,7 @@ Description: This package make backup very easy.
 
 Package: easy-backup-storage
 Source: easy-backup
-Version: 0.2
+Version: 0.3
 Architecture: all
 Maintainer: Gianluca Pacchiella <gp@ktln2.org>
 Installed-Size: 16
@@ -28,11 +28,11 @@ Depends: debconf, openssh-client, rsnapshot (>= 1.4.1-1), sudo
 Homepage: <insert the upstream URL, if relevant>
 Priority: extra
 Section: extra
-Filename: pool/main/e/easy-backup/easy-backup-storage_0.2_all.deb
-Size: 3740
-SHA256: e817177e19dbe87d5c1936cd8da95a1c8d0a2ad66ca8f5e06ae601cdda4ca824
-SHA1: 71e61f2635c4c5374ae98d1e8d35d6e78edae8f7
-MD5sum: ecaee2b187a1f89c8d1be868402fdbfa
+Filename: pool/main/e/easy-backup/easy-backup-storage_0.3_all.deb
+Size: 3794
+SHA256: 20ec231a659e1593004addbf1334ac76754617ccea64c81a41bea5a0f39f1f50
+SHA1: 90e1dfb90257395d8247a8ee071ea6fc4fa9c907
+MD5sum: 78eee099783b85af6e8fa13dc31df4d6
 Description: This package make backup very easy.
  It creates an user in the system allowed to create backups
  by rsync using the sudo command. The access is controlled by
